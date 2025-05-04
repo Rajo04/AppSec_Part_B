@@ -1,0 +1,200 @@
+{
+    "app.title": "TeamTrack",
+    "general.error": "An error occurred. Please try again later.",
+    "general.loading": "Loading...",
+    "general.fetchError": "Failed to fetch data",
+    "nav": {
+        "home": "Home",
+        "team": "Team",
+        "teams": "Teams",
+        "profile": "Profile",
+        "games": "Games",
+        "login": "Login",
+        "logout": "Logout"
+    },
+    "layout":{
+        "footerCopyrightIcon": "©",
+        "footerText": "TeamTrack. All rights reserved."
+    },
+    "mainIndex": {
+        "title": "Home - TeamTrack",
+        "welcome": "Welcome to TeamTrack!",
+        "description": "TeamTrack is a simple app to help you monitor your team's performance, manage games, and keep track of players. Start organizing your team data today!"
+    },
+    "homeOverview":{
+        "getStarted": "Get Started with TeamTrack",
+        "joinCommunity": "Join our community of teams and start tracking your performance today!",
+        "loginEmail": "Email",
+        "loginPwd": "Password",
+        "loginRole": "Role",
+        "welcomeBack": "Welcome Back!",
+        "manageTeam": "Ready to manage your team and games?"
+    },
+    "login": {
+        "success": "success",
+        "loginSuccess": "Login successful",
+        "login": "Login to your account",
+        "email": "Email address",
+        "password": "Password",
+        "hidePwd": "Hide password",
+        "showPwd": "Show password",
+        "loginButtonMessage": "Loggin in...",
+        "loginButton": "Login",
+        "registerMessage": "Don't have an account? Register"
+    },
+    "register": {
+        "firstNameError": "First name is required",
+        "lastNameError": "Last name is required",
+        "emailError": "Email is required",
+        "pwdError": "Password is required",
+        "phoneNrError": "Phone number is required",
+        "successMessage": "Registration successful",
+        "createAccount": "Create a new account",
+        "firstName": "First Name",
+        "lastName": "Last name",
+        "email": "Email address",
+        "pwd": "Password",
+        "phoneNr": "Phone Number",
+        "role": "Choose Role",
+        "caoch": "Coach",
+        "player": "Player",
+        "registerMessage": "Registering...",
+        "registerButton": "Register",
+        "loginMessage": "Already have an account? Login"
+    },
+    "gameCreator": {
+        "teamsError": "Exactly two teams are required",
+        "dateError": "Date is required",
+        "createGame": "Create a New Game",
+        "date": "Date",
+        "teamName": "Enter team name",
+        "teamSelect": "Select Teams",
+        "createGameButton": "Create Game",
+        "required": "Required*",
+        "selectTwo": "Select 2*"
+    },
+    "gameDetails": {
+        "deleteError": "Error deleting game:",
+        "teams": "Teams",
+        "result": "Result",
+        "edit": "Edit",
+        "delete": "Delete",
+        "noGames": "No games available.",
+        "games": "Games Played"
+    },
+    "gameEditor": {
+        "teamsError": "Exactly two teams are required",
+        "dateError": "Date is required",
+        "edit": "Edit Game",
+        "currentDate": "Current Date",
+        "newDate": "New Date",
+        "newDateText": "Enter a new Date",
+        "score": "Game Score",
+        "scoreText": "Enter the",
+        "updateGameButton": "Update Game"
+    },
+    "gameOverview": {
+        "teamName": "Team Name",
+        "games": "Games Played"
+    },
+    "profileEditor": {
+        "edit": "Edit User",
+        "save": "Save",
+        "saveMessage": "You will need to log back in after saving!"
+    },
+    "profileOverview": {
+        "userInfo": "User Information",
+        "role": "Role",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phoneNumber": "Phone Number",
+        "email": "Email",
+        "teams": "Current Teams",
+        "teamName": "Team Name",
+        "coach": "Coach",
+        "noTeams": "No teams found",
+        "teamPlayers": "Team Players:"
+    },
+    "teamCreator": {
+        "teamNameError": "Team Name is required",
+        "coachError": "Coach is required",
+        "playerError": "At least one player is required",
+        "createTeam": "Create a New Team",
+        "teamName": "Team Name",
+        "teamNamePlaceholder": "Enter team name",
+        "coach": "Select Coach",
+        "player": "Select Players",
+        "createTeamButton": "Create Team",
+        "required": "Required*",
+        "selectOne": "Select 1*",
+        "selectOneToFour": "Select 1-4*"
+    },
+    "teamEditor": {
+        "teamNameError": "Team Name is required",
+        "playerError": "At least one player is required",
+        "edit": "Edit Team",
+        "teamName": "Team Name",
+        "teamNamePlaceholder": "Enter team name",
+        "player": "Select Players",
+        "updateTeamButton": "Update Team"
+    },
+    "teamOverview": {
+        "teamName": "Team Name",
+        "coach": "Coach",
+        "actions": "Actions",
+        "delete": "Delete",
+        "edit": "Edit"
+    },
+    "teamPlayers": {
+        "teamPlayers": "Team Players",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "noPlayers": "No players in this team."
+    },
+    "gamesCreateIndex": {
+        "title": "Create Team - TeamTrack"
+    },
+    "gamesEditIndex": {
+        "title": "Edit Team - TeamTrack"
+    },
+    "gamesIndex": {
+        "title": "Games - TeamTrack",
+        "gamesOverview": "Games Overview",
+        "createGame": "Create Game",
+        "noGames": "No games found.",
+        "createText": "Click the 'Create Game' button to create a game!"
+    },
+    "loginIndex": {
+        "title": "Login"
+    },
+    "profileEditIndex": {
+        "title": "Edit Profile - TeamTrack",
+        "overview": "Profile Overview"
+    },
+    "profileIndex": {
+        "title": "Profile - TeamTrack",
+        "overview": "Profile Overview",
+        "edit": "Edit Profile"
+    },
+    "registerIndex": {
+        "title": "Login"
+    },
+    "teamCreateIndex": {
+        "title": "Create Team - TeamTrack"
+    },
+    "teamEditIndex": {
+        "title": "Edit Team - TeamTrack"
+    },
+    "teamIndex": {
+        "title": "Teams - TeamTrack",
+        "teamOverview": "Team Overview",
+        "createTeam": "Create Team",
+        "noTeams": "No teams found.",
+        "createText": "Click the 'Create Team' button to create a team!"
+    },
+    "language": {
+        "language": "Language: ",
+        "english": "English",
+        "dutch": "Dutch"
+    }
+}

@@ -1,0 +1,200 @@
+{
+  "app.title": "TeamTrack",
+  "general.error": "Er is een fout opgetreden. Probeer het later opnieuw.",
+  "general.loading": "Laden...",
+  "general.fetchError": "Het ophalen van gegevens is mislukt",
+  "nav": {
+    "home": "Home",
+    "team": "Team",
+    "teams": "Teams",
+    "profile": "Profiel",
+    "games": "Wedstrijden",
+    "login": "Inloggen",
+    "logout": "Uitloggen"
+  },
+  "layout": {
+    "footerCopyrightIcon": "©",
+    "footerText": "TeamTrack. Alle rechten voorbehouden."
+  },
+  "mainIndex": {
+    "title": "Home - TeamTrack",
+    "welcome": "Welkom bij TeamTrack!",
+    "description": "TeamTrack is een eenvoudige app om de prestaties van je team te volgen, wedstrijden te beheren en spelers bij te houden. Begin vandaag nog met het organiseren van je teamgegevens!"
+  },
+  "homeOverview": {
+    "getStarted": "Begin met TeamTrack",
+    "joinCommunity": "Word lid van onze community van teams en begin vandaag nog met het volgen van je prestaties!",
+    "loginEmail": "E-mail",
+    "loginPwd": "Wachtwoord",
+    "loginRole": "Rol",
+    "welcomeBack": "Welkom terug!",
+    "manageTeam": "Klaar om je team en wedstrijden te beheren?"
+  },
+  "login": {
+    "success": "succesvol",
+    "loginSuccess": "Inloggen geslaagd",
+    "login": "Log in op je account",
+    "email": "E-mailadres",
+    "password": "Wachtwoord",
+    "hidePwd": "Wachtwoord verbergen",
+    "showPwd": "Wachtwoord tonen",
+    "loginButtonMessage": "Aan het inloggen...",
+    "loginButton": "Inloggen",
+    "registerMessage": "Heb je nog geen account? Registreer"
+  },
+  "register": {
+    "firstNameError": "Voornaam is verplicht",
+    "lastNameError": "Achternaam is verplicht",
+    "emailError": "E-mail is verplicht",
+    "pwdError": "Wachtwoord is verplicht",
+    "phoneNrError": "Telefoonnummer is verplicht",
+    "successMessage": "Registratie geslaagd",
+    "createAccount": "Maak een nieuw account",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "email": "E-mailadres",
+    "pwd": "Wachtwoord",
+    "phoneNr": "Telefoonnummer",
+    "role": "Kies Rol",
+    "caoch": "Coach",
+    "player": "Speler",
+    "registerMessage": "Aan het registreren...",
+    "registerButton": "Registreren",
+    "loginMessage": "Heb je al een account? Inloggen"
+  },
+  "gameCreator": {
+    "teamsError": "Er zijn precies twee teams vereist",
+    "dateError": "Datum is verplicht",
+    "createGame": "Maak een nieuwe wedstrijd",
+    "date": "Datum",
+    "teamName": "Voer teamnaam in",
+    "teamSelect": "Selecteer teams",
+    "createGameButton": "Maak wedstrijd",
+    "required": "Verplicht*",
+    "selectTwo": "Selecteer 2*"
+  },
+  "gameDetails": {
+    "deleteError": "Fout bij het verwijderen van de wedstrijd:",
+    "teams": "Teams",
+    "result": "Resultaat",
+    "edit": "Bewerken",
+    "delete": "Verwijderen",
+    "noGames": "Geen wedstrijden beschikbaar.",
+    "games": "Gespeelde wedstrijden"
+  },
+  "gameEditor": {
+    "teamsError": "Er zijn precies twee teams vereist",
+    "dateError": "Datum is verplicht",
+    "edit": "Bewerk wedstrijd",
+    "currentDate": "Huidige datum",
+    "newDate": "Nieuwe datum",
+    "newDateText": "Voer een nieuwe datum in",
+    "score": "Wedstrijd score",
+    "scoreText": "Voer de",
+    "updateGameButton": "Werk wedstrijd bij"
+  },
+  "gameOverview": {
+    "teamName": "Teamnaam",
+    "games": "Gespeelde wedstrijden"
+  },
+  "profileEditor": {
+    "edit": "Bewerk gebruiker",
+    "save": "Opslaan",
+    "saveMessage": "Je moet je opnieuw aanmelden na het opslaan!"
+  },
+  "profileOverview": {
+    "userInfo": "Gebruikersinformatie",
+    "role": "Rol",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "phoneNumber": "Telefoonnummer",
+    "email": "E-mail",
+    "teams": "Huidige teams",
+    "teamName": "Teamnaam",
+    "coach": "Coach",
+    "noTeams": "Geen teams gevonden",
+    "teamPlayers": "Teamspelers:"
+  },
+  "teamCreator": {
+    "teamNameError": "Teamnaam is verplicht",
+    "coachError": "Coach is verplicht",
+    "playerError": "Er is ten minste één speler vereist",
+    "createTeam": "Maak een nieuw team",
+    "teamName": "Teamnaam",
+    "teamNamePlaceholder": "Voer teamnaam in",
+    "coach": "Selecteer coach",
+    "player": "Selecteer spelers",
+    "createTeamButton": "Maak team",
+    "required": "Verplicht*",
+    "selectOne": "Selecteer 1*",
+    "selectOneToFour": "Selecteer 1-4*"
+  },
+  "teamEditor": {
+    "teamNameError": "Teamnaam is verplicht",
+    "playerError": "Er is ten minste één speler vereist",
+    "edit": "Bewerk team",
+    "teamName": "Teamnaam",
+    "teamNamePlaceholder": "Voer teamnaam in",
+    "player": "Selecteer spelers",
+    "updateTeamButton": "Werk team bij"
+  },
+  "teamOverview": {
+    "teamName": "Teamnaam",
+    "coach": "Coach",
+    "actions": "Acties",
+    "delete": "Verwijderen",
+    "edit": "Bewerken"
+  },
+  "teamPlayers": {
+    "teamPlayers": "Teamspelers",
+    "firstName": "Voornaam",
+    "lastName": "Achternaam",
+    "noPlayers": "Geen spelers in dit team."
+  },
+  "gamesCreateIndex": {
+    "title": "Maak team - TeamTrack"
+  },
+  "gamesEditIndex": {
+    "title": "Bewerk team - TeamTrack"
+  },
+  "gamesIndex": {
+    "title": "Wedstrijden - TeamTrack",
+    "gamesOverview": "Wedstrijdoverzicht",
+    "createGame": "Maak wedstrijd",
+    "noGames": "Geen wedstrijden gevonden.",
+    "createText": "Klik op de knop 'Maak wedstrijd' om een wedstrijd te maken!"
+  },
+  "loginIndex": {
+    "title": "Inloggen"
+  },
+  "profileEditIndex": {
+    "title": "Bewerk profiel - TeamTrack",
+    "overview": "Profiel overzicht"
+  },
+  "profileIndex": {
+    "title": "Profiel - TeamTrack",
+    "overview": "Profiel overzicht",
+    "edit": "Bewerk profiel"
+  },
+  "registerIndex": {
+    "title": "Registreren"
+  },
+  "teamCreateIndex": {
+    "title": "Maak team - TeamTrack"
+  },
+  "teamEditIndex": {
+    "title": "Bewerk team - TeamTrack"
+  },
+  "teamIndex": {
+    "title": "Teams - TeamTrack",
+    "teamOverview": "Team overzicht",
+    "createTeam": "Maak team",
+    "noTeams": "Geen teams gevonden.",
+    "createText": "Klik op de knop 'Maak team' om een team te maken!"
+  },
+  "language": {
+    "language": "Taal: ",
+    "english": "Engels",
+    "dutch": "Nederlands"
+  }
+}
