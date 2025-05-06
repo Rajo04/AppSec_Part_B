@@ -117,4 +117,14 @@ const updateUser = async (id: number, userInput: UserInput): Promise<User> => {
     return await userDb.updateUser(createdUser);
 };
 
-export default { getAllUsers, getUserById, createUser, authenticate, getUserByEmail, updateUser };
+const deleteUser = async (id: number) => {
+    const user = await userDb.getUserById(id);
+
+    if (!user) {
+        throw new Error(`User with id ${id} does not exist.`);
+    }
+
+    await userDb.deleteUser(id);
+}
+
+export default { getAllUsers, getUserById, createUser, authenticate, getUserByEmail, updateUser, deleteUser };

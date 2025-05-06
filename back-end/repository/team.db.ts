@@ -24,7 +24,7 @@ const getTeamsByUserId = async (userId: number): Promise<Team[]> => {
         return teamsPrisma.map((team: any) => Team.from(team));
     } catch (error) {
         console.error(error);
-        throw new Error('Database error, see server log for details.');
+        return [];
     }
 };
 

@@ -34,6 +34,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import userService from '../service/user.service';
 import { UserInput } from '../types';
 import { User } from '../model/user';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 
 const userRouter = express.Router();
 
@@ -313,6 +314,33 @@ userRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
 
         const updatedUser: User = await userService.updateUser(parseInt(id), userData);
         res.status(200).json(updatedUser);
+    } catch (error: any) {
+        res.status(400).json({ status: 'error', errorMessage: error.message });
+    }
+});
+
+userRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const userId = parseInt(req.params.id);
+        
+        const authHeader = req.headers.authorization;
+        if (!authHeader || !authHeader.startsWith('Bearer ')) {
+            return res.status(401).json({ status: 'error', errorMessage: 'Unauthorized: No token provided.' });
+        }
+
+        const token = authHeader.split(' ')[1];
+
+        const secret = process.env.JWT_SECRET || 'default_secret';
+        const decoded = jwt.verify(token, secret) as JwtPayload;
+
+        const loggedInUserId = decoded.id;
+
+        if (userId !== loggedInUserId) {
+            return res.status(403).json({ status: 'error', errorMessage: 'Unauthorized to delete this account.' });
+        }
+
+        await userService.deleteUser(userId);
+        res.status(200).json({ message: 'User deleted successfully.' });
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
     }

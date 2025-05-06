@@ -44,6 +44,17 @@ const getUserById = (id: number) => {
     });
 };
 
-const UserService = { logInUser, registerUser, updateUser, getUserById };
+const deleteUser = (id: number) => {
+    const token = typeof window !== 'undefined' ? JSON.parse(sessionStorage.getItem("loggedInUser") || '{}')?.token : '';
+    return fetch(apiUrl + `/users/${id}`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+        },
+    });
+};
+
+const UserService = { logInUser, registerUser, updateUser, getUserById, deleteUser };
 
 export default UserService;

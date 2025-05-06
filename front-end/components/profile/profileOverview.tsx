@@ -8,6 +8,7 @@ import { useTranslation } from 'next-i18next';
 import TeamService from '@services/TeamService';
 import useSWR, { mutate } from 'swr';
 import useInterval from 'use-interval';
+import UserService from '@services/UserService';
 
 type Props = {
     user: User;
@@ -54,6 +55,23 @@ const ProfileOverview: React.FC<Props> = ({ user }) => {
         return <p>{t('general.loading')}</p>;
     }
 
+    const handleDeleteAccount = async () => {
+        try {
+            const response = await UserService.deleteUser(user.id);
+            if (response.ok) {
+                alert('Account deleted successfully');
+                sessionStorage.removeItem('loggedInUser');
+                router.push('/login');
+            } else {
+                const error = await response.json();
+                alert(error.errorMessage || 'Failed to delete account');
+            }
+        } catch (error) {
+            console.error(error);
+            alert('An error occurred while deleting the account');
+        }
+    };
+
     const toggleTeamDropdown = (teamId: number) => {
         setExpandedTeamId((prev) => (prev === teamId ? null : teamId));
     };
@@ -73,6 +91,14 @@ const ProfileOverview: React.FC<Props> = ({ user }) => {
                   <Edit size={24} className="mr-2" />
                   {t('profileIndex.edit')}
               </button>
+                )}
+                {(loggedInUser.id === user.id) && (
+                    <button
+                        onClick={handleDeleteAccount}
+                        className="px-6 py-3 bg-red-600 text-white text-lg font-semibold rounded-md transition-all duration-300 hover:bg-red-700 hover:shadow-lg transform hover:scale-105 flex items-center"
+                    >
+                        Delete Account
+                    </button>
                 )}
                 <table className="w-full">
                     <thead className="bg-secondary text-white">

@@ -76,4 +76,15 @@ const updateUser = async (updatedUser: User): Promise<User> => {
     }
 };
 
-export default { getAllUsers, getUserById, getUserByEmail, createUser, updateUser };
+const deleteUser = async (id: number): Promise<void> => {
+    try {
+        await database.user.delete({
+            where: { id }
+        });
+    } catch (error) {
+        console.error(error);
+        throw new Error('Database error, see server log for details.');
+    }
+}
+
+export default { getAllUsers, getUserById, getUserByEmail, createUser, updateUser, deleteUser };

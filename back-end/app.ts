@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 app.use(
     expressjwt({
         secret: process.env.JWT_SECRET || 'default_secret',
-        algorithms: ['RS256'],
+        algorithms: ['HS256'],
     }).unless({
         path: ['/users/login', '/users/register', '/status', '/api-docs', /^\/api-docs.*/],
     })
