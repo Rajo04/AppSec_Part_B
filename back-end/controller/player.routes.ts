@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import playerService from '../service/player.service';
+import logger from '../util/winstonLogger';
 
 const playerRouter = express.Router();
 
@@ -58,6 +59,7 @@ playerRouter.get('/', async (req: Request, res: Response, next: NextFunction) =>
         res.status(200).json(players);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching players: ${error.message}`);
     }
 });
 
@@ -104,6 +106,7 @@ playerRouter.get('/:id', async (req: Request, res: Response, next: NextFunction)
         res.status(200).json(player);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching player with ID ${req.params.id}: ${error.message}`);
     }
 });
 

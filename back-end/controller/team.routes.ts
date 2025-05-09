@@ -1,5 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express';
 import teamService from '../service/team.service';
+import logger from '../util/winstonLogger';
+import { log } from 'console';
 
 const teamRouter = express.Router();
 
@@ -70,6 +72,7 @@ teamRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json(teams);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching teams: ${error.message}`);
     }
 });
 
@@ -116,6 +119,7 @@ teamRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
         res.status(200).json(team);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching team with ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -162,6 +166,7 @@ teamRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
         res.status(200).json(team);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching team by user with ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -204,10 +209,17 @@ teamRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
 teamRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const teamData = req.body;
+
+        logger.info(`Creating team with data: ${JSON.stringify(teamData)}`);
+
         const newTeam = await teamService.createTeam(teamData);
+
+        logger.info(`Team created successfully: ${JSON.stringify(newTeam)}`);
+
         res.status(201).json(newTeam);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error creating team: ${error.message}`);
     }
 });
 
@@ -258,10 +270,17 @@ teamRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
     try {
         const teamData = req.body;
         const id = req.params.id;
+
+        logger.info(`Updating team with ID ${id} and data: ${JSON.stringify(teamData)}`);
+
         const updatedTeam = await teamService.updateTeam(parseInt(id), teamData);
+
+        logger.info(`Team updated successfully: ${JSON.stringify(updatedTeam)}`);
+
         res.status(200).json(updatedTeam);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error updating team with ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -304,10 +323,18 @@ teamRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
  */
 teamRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const team = await teamService.deleteTeam(parseInt(req.params.id));
+        const teamId = parseInt(req.params.id);
+
+        logger.info(`Deleting team with ID ${teamId}`);
+
+        const team = await teamService.deleteTeam(teamId);
+
+        logger.info(`Team deleted successfully: ${JSON.stringify(team)}`);
+
         res.status(200).json(team);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error deleting team with ID ${req.params.id}: ${error.message}`);
     }
 });
 

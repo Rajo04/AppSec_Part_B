@@ -1,5 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
 import coachService from '../service/coach.service';
+import logger from '../util/winstonLogger';
 
 const coachRouter = express.Router();
 
@@ -58,6 +59,7 @@ coachRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
         res.status(200).json(coaches);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching coaches: ${error.message}`);
     }
 });
 
@@ -104,6 +106,7 @@ coachRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) 
         res.status(200).json(coach);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching coach with ID ${req.params.id}: ${error.message}`);
     }
 });
 

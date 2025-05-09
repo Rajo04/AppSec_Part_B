@@ -35,6 +35,7 @@ import userService from '../service/user.service';
 import { UserInput } from '../types';
 import { User } from '../model/user';
 import jwt, { JwtPayload } from 'jsonwebtoken';
+import logger from '../util/winstonLogger';
 
 const userRouter = express.Router();
 
@@ -64,6 +65,7 @@ userRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json(users);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching users: ${error.message}`);
     }
 });
 
@@ -171,10 +173,17 @@ userRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
 userRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const userData: UserInput = req.body;
+
+        logger.info(`Creating user with data: ${JSON.stringify(userData)}`);
+
         const newUser = await userService.createUser(userData);
+
+        logger.info(`User created successfully: ${JSON.stringify(newUser)}`);
+
         res.status(201).json(newUser);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error creating user: ${error.message}`);
     }
 });
 
@@ -203,11 +212,17 @@ userRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
 userRouter.post('/register', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const userInput = <UserInput>req.body;
+
+        logger.info(`Registering user with data: ${JSON.stringify(userInput)}`);
+
         const user = await userService.createUser(userInput);
     
+        logger.info(`User registered successfully: ${JSON.stringify(user)}`);
+
         res.status(201).json(user);
     } catch (error) {
         next(error);
+        logger.error(`Error registering user: ${error}`);
     }
 });
 
@@ -240,10 +255,17 @@ userRouter.post('/register', async (req: Request, res: Response, next: NextFunct
 userRouter.post('/login', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const userInput: UserInput = req.body;
+
+        logger.info(`Authenticating user with data: ${JSON.stringify(userInput)}`);
+
         const response = await userService.authenticate(userInput);
+
+        logger.info(`User authenticated successfully: ${JSON.stringify(response)}`);
+
         res.status(200).json({ message: 'Authentication successful', ...response });
     } catch (error) {
         next(error);
+        logger.error(`Error authenticating user: ${error}`);
     }
 });
 
@@ -312,10 +334,16 @@ userRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
 
         const id = req.params.id;
 
+        logger.info(`Updating user with ID ${id} and data: ${JSON.stringify(userData)}`);
+
         const updatedUser: User = await userService.updateUser(parseInt(id), userData);
+
+        logger.info(`User updated successfully: ${JSON.stringify(updatedUser)}`);
+
         res.status(200).json(updatedUser);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error updating user: ${error.message}`);
     }
 });
 
@@ -339,10 +367,16 @@ userRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction
             return res.status(403).json({ status: 'error', errorMessage: 'Unauthorized to delete this account.' });
         }
 
+        logger.info(`Deleting user with ID: ${userId}`);
+
         await userService.deleteUser(userId);
+
+        logger.info(`User with ID ${userId} deleted successfully.`);
+
         res.status(200).json({ message: 'User deleted successfully.' });
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error deleting user: ${error.message}`);
     }
 });
 

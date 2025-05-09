@@ -2,6 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import gameService from '../service/game.service';
 import { GameInput } from '../types';
 import { Game } from '../model/game';
+import logger from '../util/winstonLogger';
 
 const gameRouter = express.Router();
 
@@ -75,6 +76,7 @@ gameRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
         res.status(200).json(games);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching games: ${error.message}`);
     }
 });
 
@@ -121,6 +123,7 @@ gameRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
         res.status(200).json(game);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching game: ${error.message}`);
     }
 });
 
@@ -167,6 +170,7 @@ gameRouter.get('/team/:id', async (req: Request, res: Response, next: NextFuncti
         res.status(200).json(game);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching games by team ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -213,6 +217,7 @@ gameRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
         res.status(200).json(game);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error fetching games by user ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -255,10 +260,17 @@ gameRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
 gameRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
     try {
         const gameData = req.body;
+
+        logger.info(`Creating game with data: ${JSON.stringify(gameData)}`);
+
         const newGame = await gameService.createGame(gameData);
+
+        logger.info(`Game created successfully: ${JSON.stringify(newGame)}`);
+
         res.status(201).json(newGame);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error creating game: ${error.message}`);
     }
 });
 
@@ -309,10 +321,17 @@ gameRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
     try {
         const gameData: GameInput = req.body;
         const id = req.params.id;
+
+        logger.info(`Updating game with ID ${id} and data: ${JSON.stringify(gameData)}`);
+
         const updatedGame: Game = await gameService.updateGame(parseInt(id), gameData);
+
+        logger.info(`Game updated successfully: ${JSON.stringify(updatedGame)}`);
+
         res.status(200).json(updatedGame);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error updating game with ID ${req.params.id}: ${error.message}`);
     }
 });
 
@@ -355,10 +374,18 @@ gameRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
  */
 gameRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const game = await gameService.deleteGame(parseInt(req.params.id));
+        const gameId = parseInt(req.params.id);
+        
+        logger.info(`Deleting game with ID ${gameId}`);
+
+        const game = await gameService.deleteGame(gameId);
+
+        logger.info(`Game deleted successfully: ${JSON.stringify(game)}`);
+
         res.status(200).json(game);
     } catch (error: any) {
         res.status(400).json({ status: 'error', errorMessage: error.message });
+        logger.error(`Error deleting game with ID ${req.params.id}: ${error.message}`);
     }
 });
 
