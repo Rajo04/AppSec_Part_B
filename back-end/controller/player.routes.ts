@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import playerService from '../service/player.service';
 import logger from '../util/winstonLogger';
 
@@ -53,7 +53,7 @@ const playerRouter = express.Router();
  *       401:
  *         description: Unauthorized
  */
-playerRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+playerRouter.get('/', async (req: Request, res: Response) => {
     try {
         const players = await playerService.getAllPlayers();
         res.status(200).json(players);
@@ -100,7 +100,7 @@ playerRouter.get('/', async (req: Request, res: Response, next: NextFunction) =>
  *       401:
  *         description: Unauthorized
  */
-playerRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+playerRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const player = await playerService.getPlayerById(parseInt(req.params.id));
         res.status(200).json(player);

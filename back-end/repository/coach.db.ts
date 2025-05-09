@@ -31,7 +31,6 @@ const getCoachById = async (id: number): Promise<Coach> => {
 
 const createCoach = async (newCoach: Coach): Promise<Coach> => {
     const user = newCoach.getUser();
-    const id = newCoach.getId();
     try {
         const coachPrisma = await database.coach.create({
             data: {

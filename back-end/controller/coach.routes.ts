@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import coachService from '../service/coach.service';
 import logger from '../util/winstonLogger';
 
@@ -53,7 +53,7 @@ const coachRouter = express.Router();
  *       401:
  *         description: Unauthorized
  */
-coachRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+coachRouter.get('/', async (req: Request, res: Response) => {
     try {
         const coaches = await coachService.getAllCoaches();
         res.status(200).json(coaches);
@@ -100,7 +100,7 @@ coachRouter.get('/', async (req: Request, res: Response, next: NextFunction) => 
  *       401:
  *         description: Unauthorized
  */
-coachRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+coachRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const coach = await coachService.getCoachById(parseInt(req.params.id));
         res.status(200).json(coach);

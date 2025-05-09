@@ -1,4 +1,4 @@
-import { Coach as CoachPrisma, User as UserPrisma, Team as TeamPrisma } from '@prisma/client';
+import { Coach as CoachPrisma, User as UserPrisma } from '@prisma/client';
 import { User } from './user';
 import { Team } from './team';
 

@@ -1,4 +1,3 @@
-import { Coach, Player } from '@prisma/client';
 
 type Role = 'admin' | 'player' | 'coach';
 

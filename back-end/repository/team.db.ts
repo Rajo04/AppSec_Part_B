@@ -1,6 +1,4 @@
-import { Coach } from '../model/coach';
 import { Team } from '../model/team';
-import { TeamInput } from '../types';
 import database from './database';
 
 const getAllTeams = async (): Promise<Team[]> => {

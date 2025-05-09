@@ -3,9 +3,6 @@ import { AuthenticationResponse, UserInput } from '../types';
 import userDb from '../repository/user.db';
 import bcrypt from 'bcrypt';
 import { generateJWTToken } from '../util/jwt';
-import { Player } from '../model/player';
-import playerDb from '../repository/player.db';
-import { Coach } from '../model/coach';
 import coachService from './coach.service';
 import playerService from './player.service';
 

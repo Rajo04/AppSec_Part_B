@@ -31,7 +31,6 @@ const getPlayerById = async (id: number): Promise<Player> => {
 
 const createPlayer = async (newPlayer: Player): Promise<Player> => {
     const user = newPlayer.getUser();
-    const id = newPlayer.getId();
     try {
         const playerPrisma = await database.player.create({
             data: {

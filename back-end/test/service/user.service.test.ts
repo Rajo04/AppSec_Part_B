@@ -6,17 +6,12 @@ import { Role } from '../../types';
 const validId = 1;
 const invalidId = -1;
 const validFirstName = 'Test';
-const invalidFirstName = '';
 const validLastName = 'Tester';
-const invalidLastName = '';
 const validEmail = 'testtester@ucll.be';
 const invalidEmail = '';
 const validPhoneNumber = '0423456789';
-const invalidPhoneNumber = '';
 const validRole = 'coach' as Role;
-const invalidRole = 'invalid' as Role;
 const validPassword = 'password';
-const invalidPassword = '';
 const hashedPassword = 'hashedpassword';
 
 const validUser = {

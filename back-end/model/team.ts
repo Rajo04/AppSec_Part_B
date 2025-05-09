@@ -6,7 +6,6 @@ import {
     Player as PlayerPrisma,
     Team as TeamPrisma,
     User as UserPrisma,
-    Game as GamePrisma,
 } from '@prisma/client';
 
 export class Team {

@@ -10,15 +10,7 @@ const validPassword = 'password123';
 const validRole = 'coach';
 const invalidRole = '' as Role;
 
-const validUser = new User({
-    id: validId,
-    firstName: validFirstName,
-    lastName: validLastName,
-    email: validEmail,
-    phoneNumber: validPhoneNumber,
-    password: validPassword,
-    role: validRole,
-});
+
 
 test('givenValidValues_whenCreatingUser_thenUserIsCreated', () => {
     // given

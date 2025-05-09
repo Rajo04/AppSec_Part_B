@@ -1,6 +1,4 @@
-import { te } from 'date-fns/locale';
 import { Team } from '../model/team';
-import coachDb from '../repository/coach.db';
 import teamDb from '../repository/team.db';
 import { TeamInput } from '../types/index';
 import { Coach } from '../model/coach';

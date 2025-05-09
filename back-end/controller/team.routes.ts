@@ -1,7 +1,6 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import teamService from '../service/team.service';
 import logger from '../util/winstonLogger';
-import { log } from 'console';
 
 const teamRouter = express.Router();
 
@@ -66,7 +65,7 @@ const teamRouter = express.Router();
  *       401:
  *         description: Unauthorized
  */
-teamRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.get('/', async (req: Request, res: Response) => {
     try {
         const teams = await teamService.getAllTeams();
         res.status(200).json(teams);
@@ -113,7 +112,7 @@ teamRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
  *       401:
  *         description: Unauthorized
  */
-teamRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const team = await teamService.getTeamById(parseInt(req.params.id));
         res.status(200).json(team);
@@ -160,7 +159,7 @@ teamRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
  *       401:
  *         description: Unauthorized
  */
-teamRouter.get('/user/:id', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.get('/user/:id', async (req: Request, res: Response) => {
     try {
         const team = await teamService.getTeamsByUserId(parseInt(req.params.id));
         res.status(200).json(team);
@@ -206,7 +205,7 @@ teamRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
  *       401:
  *         description: Unauthorized
  */
-teamRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.post('/', async (req: Request, res: Response) => {
     try {
         const teamData = req.body;
 
@@ -266,7 +265,7 @@ teamRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
  *       401:
  *         description: Unauthorized
  */
-teamRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.put('/edit/:id', async (req: Request, res: Response) => {
     try {
         const teamData = req.body;
         const id = req.params.id;
@@ -321,7 +320,7 @@ teamRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
  *       401:
  *         description: Unauthorized
  */
-teamRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+teamRouter.delete('/:id', async (req: Request, res: Response) => {
     try {
         const teamId = parseInt(req.params.id);
 

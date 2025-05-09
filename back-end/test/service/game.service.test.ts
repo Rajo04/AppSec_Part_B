@@ -1,8 +1,3 @@
-import { set } from 'date-fns';
-import { Coach } from '../../model/coach';
-import { Game } from '../../model/game';
-import { Player } from '../../model/player';
-import { Team } from '../../model/team';
 import gameService from '../../service/game.service';
 import gameDb from '../../repository/game.db';
 import { GameInput, TeamInput, PlayerInput, CoachInput } from '../../types';

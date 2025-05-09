@@ -59,7 +59,7 @@ const userRouter = express.Router();
  *       401:
  *         description: Unauthorized
  */
-userRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+userRouter.get('/', async (req: Request, res: Response) => {
     try {
         const users = await userService.getAllUsers();
         res.status(200).json(users);
@@ -106,7 +106,7 @@ userRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
  *       401:
  *         description: Unauthorized
  */
-userRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+userRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const user = await userService.getUserById(parseInt(req.params.id));
         res.status(200).json(user);
@@ -170,7 +170,7 @@ userRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
  *       401:
  *         description: Unauthorized
  */
-userRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+userRouter.post('/', async (req: Request, res: Response) => {
     try {
         const userData: UserInput = req.body;
 
@@ -328,7 +328,7 @@ userRouter.post('/login', async (req: Request, res: Response, next: NextFunction
  *       401:
  *         description: Unauthorized
  */
-userRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFunction) => {
+userRouter.put('/edit/:id', async (req: Request, res: Response) => {
     try {
         const userData: UserInput = req.body;
 
@@ -347,7 +347,7 @@ userRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
     }
 });
 
-userRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+userRouter.delete('/:id', async (req: Request, res: Response) => {
     try {
         const userId = parseInt(req.params.id);
         

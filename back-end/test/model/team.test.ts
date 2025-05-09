@@ -2,7 +2,6 @@ import { Coach } from '../../model/coach';
 import { Player } from '../../model/player';
 import { Team } from '../../model/team';
 import { User } from '../../model/user';
-import teamDb from '../../repository/team.db';
 import { Role } from '../../types';
 
 
@@ -43,7 +42,6 @@ const validPlayer2 = new Player({id: 2, user: validUser2});
 
 const validTeamName = 'UCLLTeam';
 const validId = 3;
-const invalidId = -1;
 
 
 

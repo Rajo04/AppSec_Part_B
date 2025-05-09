@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from 'express';
+import express, { Request, Response } from 'express';
 import gameService from '../service/game.service';
 import { GameInput } from '../types';
 import { Game } from '../model/game';
@@ -70,7 +70,7 @@ const gameRouter = express.Router();
  *       401:
  *         description: Unauthorized
  */
-gameRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.get('/', async (req: Request, res: Response) => {
     try {
         const games = await gameService.getAllGames();
         res.status(200).json(games);
@@ -117,7 +117,7 @@ gameRouter.get('/', async (req: Request, res: Response, next: NextFunction) => {
  *       401:
  *         description: Unauthorized
  */
-gameRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.get('/:id', async (req: Request, res: Response) => {
     try {
         const game = await gameService.getGameById(parseInt(req.params.id));
         res.status(200).json(game);
@@ -164,7 +164,7 @@ gameRouter.get('/:id', async (req: Request, res: Response, next: NextFunction) =
  *       401:
  *         description: Unauthorized
  */
-gameRouter.get('/team/:id', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.get('/team/:id', async (req: Request, res: Response) => {
     try {
         const game = await gameService.getGamesByTeamId(parseInt(req.params.id));
         res.status(200).json(game);
@@ -211,7 +211,7 @@ gameRouter.get('/team/:id', async (req: Request, res: Response, next: NextFuncti
  *       401:
  *         description: Unauthorized
  */
-gameRouter.get('/user/:id', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.get('/user/:id', async (req: Request, res: Response) => {
     try {
         const game = await gameService.getGamesByUserId(parseInt(req.params.id));
         res.status(200).json(game);
@@ -257,7 +257,7 @@ gameRouter.get('/user/:id', async (req: Request, res: Response, next: NextFuncti
  *       401:
  *         description: Unauthorized
  */
-gameRouter.post('/', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.post('/', async (req: Request, res: Response) => {
     try {
         const gameData = req.body;
 
@@ -317,7 +317,7 @@ gameRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
  *       401:
  *         description: Unauthorized
  */
-gameRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.put('/edit/:id', async (req: Request, res: Response) => {
     try {
         const gameData: GameInput = req.body;
         const id = req.params.id;
@@ -372,7 +372,7 @@ gameRouter.put('/edit/:id', async (req: Request, res: Response, next: NextFuncti
  *       401:
  *         description: Unauthorized
  */
-gameRouter.delete('/:id', async (req: Request, res: Response, next: NextFunction) => {
+gameRouter.delete('/:id', async (req: Request, res: Response) => {
     try {
         const gameId = parseInt(req.params.id);
         
